@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title> Stock Predictor </title>
+    </head>
+    
+    <body>
+        <style>
+            h1 {text-align: center;}
+            p {text-align: center;}
+            div {text-align: center;}
+            img {display: block; margin-left: auto; margin-right: auto;}
+            
+        </style>
+        <div style="background:transparent !important" class="jumbotron">
+    <h1>Welcome!</h1>
+    <p>I have created a Neural Network (LSTM - Long Short Term Memory Networks - a kind of Recurrent Neural Network (RNN)) to predict stock prices for the next day. Google FireBase is used as a backend, and the model updates values periodically. The web application grabs values from that backend, and displays it below. The following tools and frameworks were used for this project: Python, Google FireBase, Flask, Bootstrap, Tensorflow/Keras. </p>
+        </div>
+    
+        
+        <div class = "container">
+        <p>
+          <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#MSFT" aria-expanded="false" aria-controls="MSFT">
+            MSFT
+          </button>
+          <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#AAPL" aria-expanded="false" aria-controls="AAPL">
+            AAPL
+          </button>
+          <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#GOOG" aria-expanded="false" aria-controls="GOOG">
+            GOOG
+          </button>
+          <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#TSLA" aria-expanded="false" aria-controls="TSLA">
+            TSLA
+          </button>
+          <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#FB" aria-expanded="false" aria-controls="FB">
+            FB
+          </button>
+          <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#AMZN" aria-expanded="false" aria-controls="AMZN">
+            AMZN
+          </button>
+          <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#NFLX" aria-expanded="false" aria-controls="NFLX">
+            NFLX
+          </button>
+        </p>
+   
+            
+            
+        <div class="collapse" id="MSFT">
+          <div class="card card-body">            
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">RMSE: {{data['MSFT']['RMSE']}}</h5>
+                        <p class="card-text">RMSE is the root mean square error. This is typically used to measure a models performance. A value closer to 0 indicates higher model accuracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Predicted Closing Price for Tomorrow: ${{data['MSFT']['Predicted Price']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">This model was updated on: {{data['MSFT']['Date']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <image src = "{{ url_for('static', filename = 'images/MSFT.png')}}"></image>
+          </div>
+        </div>
+            
+            
+        <div class="collapse" id="AAPL">
+          <div class="card card-body">            
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">RMSE: {{data['AAPL']['RMSE']}}</h5>
+                        <p class="card-text">RMSE is the root mean square error. This is typically used to measure a models performance. A value closer to 0 indicates higher model accuracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Predicted Closing Price for Tomorrow: ${{data['AAPL']['Predicted Price']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">This model was updated on: {{data['AAPL']['Date']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <image src = "{{ url_for('static', filename = 'images/AAPL.png')}}"></image>
+          </div>
+        </div>
+            
+        <div class="collapse" id="GOOG">
+          <div class="card card-body">            
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">RMSE: {{data['GOOG']['RMSE']}}</h5>
+                        <p class="card-text">RMSE is the root mean square error. This is typically used to measure a models performance. A value closer to 0 indicates higher model accuracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Predicted Closing Price for Tomorrow: ${{data['GOOG']['Predicted Price']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">This model was updated on: {{data['GOOG']['Date']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <image src = "{{ url_for('static', filename = 'images/GOOG.png')}}"></image>
+          </div>
+        </div>
+            
+        <div class="collapse" id="TSLA">
+          <div class="card card-body">            
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">RMSE: {{data['TSLA']['RMSE']}}</h5>
+                        <p class="card-text">RMSE is the root mean square error. This is typically used to measure a models performance. A value closer to 0 indicates higher model accuracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Predicted Closing Price for Tomorrow: ${{data['TSLA']['Predicted Price']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">This model was updated on: {{data['TSLA']['Date']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <image src = "{{ url_for('static', filename = 'images/TSLA.png')}}"></image>
+          </div>
+        </div>
+            
+        <div class="collapse" id="FB">
+          <div class="card card-body">            
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">RMSE: {{data['FB']['RMSE']}}</h5>
+                        <p class="card-text">RMSE is the root mean square error. This is typically used to measure a models performance. A value closer to 0 indicates higher model accuracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Predicted Closing Price for Tomorrow: ${{data['FB']['Predicted Price']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">This model was updated on: {{data['FB']['Date']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <image src = "{{ url_for('static', filename = 'images/FB.png')}}"></image>
+          </div>
+        </div>
+            
+        <div class="collapse" id="AMZN">
+          <div class="card card-body">            
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">RMSE: {{data['AMZN']['RMSE']}}</h5>
+                        <p class="card-text">RMSE is the root mean square error. This is typically used to measure a models performance. A value closer to 0 indicates higher model accuracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Predicted Closing Price for Tomorrow: ${{data['AMZN']['Predicted Price']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">This model was updated on: {{data['AMZN']['Date']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <image src = "{{ url_for('static', filename = 'images/AMZN.png')}}"></image>
+          </div>
+        </div>
+            
+        <div class="collapse" id="NFLX">
+          <div class="card card-body">            
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">RMSE: {{data['NFLX']['RMSE']}}</h5>
+                        <p class="card-text">RMSE is the root mean square error. This is typically used to measure a models performance. A value closer to 0 indicates higher model accuracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Predicted Closing Price for Tomorrow: ${{data['NFLX']['Predicted Price']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">This model was updated on: {{data['NFLX']['Date']}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <image src = "{{ url_for('static', filename = 'images/NFLX.png')}}"></image>
+          </div>
+        </div>
+            
+            
+            </div>
+        
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+    
+</html>
